@@ -8,14 +8,14 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        // testComplexity();
+        testComplexity();
        // testLinearAndBinarySearch();
        // testSort();
 
     }
 
     private static void testComplexity() {
-        int n = 10000; // justér for at demonstrere tydeligt
+        int n = 10; // justér for at demonstrere tydeligt
 
         // O(1)
         long start = System.currentTimeMillis();
