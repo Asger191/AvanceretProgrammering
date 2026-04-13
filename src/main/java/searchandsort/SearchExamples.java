@@ -7,15 +7,28 @@ import java.util.Scanner;
 
 
 public class SearchExamples {
+    public static void main(String[] args){
 
+        int[] numbers = {1,2,3,4,5};
+        System.out.println(linearSearch(numbers, 5));
+
+        System.out.println(binarySearch(numbers, 5));
+
+    }
+
+    //O(n)
     // Lineær søgning i array
     public static int linearSearch(int[] array, int target) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == target) return i; // fundet!
+            if (array[i] == target){
+
+                return i; // fundet!
+            }
         }
         return -1; // ikke fundet
     }
 
+    // O(log n)
     // Binær søgning (sorteret array)
     public static int binarySearch(int[] array, int target) {
         int low = 0;

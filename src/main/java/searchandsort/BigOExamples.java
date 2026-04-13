@@ -2,7 +2,8 @@ package searchandsort;
 
 public class BigOExamples {
     public static void main(String[] args) {
-        int n = 100000; // Juster n for at se effekten
+        int n = 10; // Juster n for at se effekten
+        /*
         System.out.println("O(1) - Konstant tid:");
         constantTime(n);
 
@@ -14,6 +15,23 @@ public class BigOExamples {
 
         System.out.println("\nO(n^2) - Kvadratisk tid:");
         quadraticTime(n);
+
+         */
+
+        System.out.println("O(1) kommer her: ");
+        O1(n);
+        System.out.println("");
+
+        System.out.println("O(log n) kommer her:");
+        OLogN(50);
+        System.out.println("");
+
+        System.out.println("O(n) kommer her:");
+        On(n);
+        System.out.println("");
+
+        System.out.println("O(n^2) kommer her:");
+        OpløftetN(n);
     }
 
     // O(1) - Konstant tid
@@ -45,5 +63,47 @@ public class BigOExamples {
         }
 
     }
+
+
+
+
+    //O(1)
+    public static void O1(int o){
+        System.out.println("Vi printer kun dette en gang: " + o);
+    }
+
+
+    //O(log n)
+   public static void OLogN(int p){
+        int k = 0;
+        for(int i = p; i>1; i=i/2){
+            System.out.println("Vi printer nu: " + i);
+            k++;
+        }
+       System.out.println("Gange vi laver log n, altså vi dividerer i to: " + k);
+   }
+
+
+
+    //O(n)
+    public static void On(int o){
+        for(int i = 0; i<o; i++){
+            System.out.println("Vi printer i hver gang for at vise den lineære sammenhæng: " + i);
+        }
+    }
+
+
+    //O(n^2)
+
+    public static void OpløftetN(int n){
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<n; j++){
+                System.out.println("Printer 0,1 for hver i iteration og indtil vi rammer 10, her kommer bid for bid: " + i + "," + j);
+            }
+        }
+    }
 }
+
+
+
 

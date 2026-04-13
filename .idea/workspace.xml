@@ -8,9 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portfolio_exercises/searchandsort/complexity.md" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_exercises/searchandsort/complexity.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/BigOExamples.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/BigOExamples.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/HashSetMutationDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/HashSetMutationDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/TreeSetMutationDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/TreeSetMutationDemo.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -42,6 +49,7 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.BigOExamples.executor&quot;: &quot;Run&quot;,
@@ -93,8 +101,9 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\reflection\annotations_solution" />
@@ -119,7 +128,9 @@
       <recent name="concurrency.executorexercise" />
     </key>
   </component>
+
   <component name="RunManager" selected="Application.HashSetMutationDemo">
+
     <configuration name="BigOExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="searchandsort.BigOExamples" />
       <module name="AvanceretProgrammering" />
@@ -133,8 +144,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="HashSetMutationDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="searchandsort.HashSetMutationDemo" />
+
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
@@ -159,12 +172,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+
     <configuration name="Quiz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="quirks.Quiz" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="quirks.*" />
+
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -186,10 +201,12 @@
       </method>
     </configuration>
     <list>
+
       <item itemvalue="Application.BigOExamples" />
       <item itemvalue="Application.HashSetMutationDemo" />
       <item itemvalue="Application.TreeSetMutationDemo" />
       <item itemvalue="Application.Quiz" />
+
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
@@ -205,8 +222,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-IU-252.23892.409" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -298,6 +315,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/algorithms/backtracking/TryBacktrack.java</url>
           <line>55</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/searchandsort/SearchExamples.java</url>
+          <line>32</line>
+          <properties class="searchandsort.SearchExamples" method="binarySearch">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

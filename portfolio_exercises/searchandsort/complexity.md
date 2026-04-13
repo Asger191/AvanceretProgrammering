@@ -6,8 +6,12 @@
   performe. Prøv at skifte værdien af `n` og observer effekten.
 - Kig på metoden `testComplexity()` i klassen `searchandsort.Main`. Her kaldes de samme metoder fra `BigOExamples` og deres performance måles med
   tidsstempler. Kald metoden fra `main` og se forskellen i tid. (Tip: udkommentér udskrift fra metoderne i `BigOExamples` så output bliver mere overskueligt).
+### Ved at udkommentere sout i metoderne i BigOExamples, så kan vi se tiden fra nul
+
 - Lav tre metoder i en ny klasse eller i klassen `BigOExamples`. Hver metode skal have én af følgende kompleksiteter: O(1), O(log n) og O(n).
   Du bestemmer selv hvad metoderne skal gøre, men hold dem simple.
+
+
 - Byt kode med en anden. Analyser hinandens kode og identificer kompleksiteten for hver enkelt metode.
 
 ## 2. Datastrukturer og kompleksitet i praksis
