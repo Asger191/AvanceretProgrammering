@@ -8,9 +8,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        testComplexity();
+        //testComplexity();
        // testLinearAndBinarySearch();
        // testSort();
+        testSort();
 
     }
 
@@ -71,26 +72,26 @@ public class Main {
     private static void testSort() {
         List<Student> original = new ArrayList<>();
         Factory.fillWithStudents(original, 100000); // eller fx 10_000 til hurtigere test
-      //  Collections.shuffle(original);
+        //Collections.shuffle(original);
 
         // Bubble Sort (langsom)
         List<Student> bubbleList = new ArrayList<>(original);
         long start = System.currentTimeMillis();
-     //   SortExamples.bubbleSort(bubbleList);
+        //SortExamples.bubbleSort(bubbleList);
         long stop = System.currentTimeMillis();
         System.out.println("Bubble Sort - tid: " + (stop - start) + " ms");
 
         // Heap Sort
         List<Student> heapList = new ArrayList<>(original);
         start = System.currentTimeMillis();
-        SortExamples.heapSort(heapList);
+        //SortExamples.heapSort(heapList);
         stop = System.currentTimeMillis();
         System.out.println("Heap Sort - tid: " + (stop - start) + " ms");
 
         // Quick Sort
         List<Student> quickList = new ArrayList<>(original);
         start = System.currentTimeMillis();
-        SortExamples.quickSort(quickList, 0, quickList.size() - 1);
+        //SortExamples.quickSort(quickList, 0, quickList.size() - 1);
         stop = System.currentTimeMillis();
         System.out.println("Quick Sort - tid: " + (stop - start) + " ms");
 

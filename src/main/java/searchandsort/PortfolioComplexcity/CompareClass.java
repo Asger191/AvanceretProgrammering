@@ -1,4 +1,4 @@
-package searchandsort.complexityAssignments;
+package searchandsort.PortfolioComplexcity;
 
 public class CompareClass implements Comparable<CompareClass> {
 
@@ -13,18 +13,22 @@ public class CompareClass implements Comparable<CompareClass> {
     }
 
     // compareTo bruges af TreeSet
+
     @Override
     public int compareTo(CompareClass other) {
         return Integer.compare(this.value, other.value);
     }
 
-    // equals bruges bl.a. af HashSet
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
 
-        CompareClass other = (CompareClass) obj;
+
+
+    // equals bruges af HashSet
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CompareClass)) return false;
+
+        CompareClass other = (CompareClass) o;
         return this.value == other.value;
     }
 

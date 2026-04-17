@@ -1,6 +1,4 @@
-package searchandsort.complexityAssignments;
-
-import searchandsort.BigOExamples;
+package searchandsort.PortfolioComplexcity;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,6 +6,7 @@ import java.util.LinkedList;
 import java.util.TreeSet;
 
 public class Assigment2 {
+
     public static void main(String[] args){
 
         ArrayList<Integer> integerArrayList = new ArrayList<>();
@@ -35,6 +34,7 @@ public class Assigment2 {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println();
 
+        // Array List
         System.out.println("Array list");
 
         start = System.currentTimeMillis();
