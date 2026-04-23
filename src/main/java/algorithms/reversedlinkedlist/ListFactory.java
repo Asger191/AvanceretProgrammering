@@ -14,5 +14,34 @@ public class ListFactory {
         return head;
     }
 
+// values = 1, 5, 7, 12, 17
 
+    //
+
+    public static Node reverseList(int... values) {
+        if (values.length == 0) return null;
+
+        Node tail = new Node(values[values.length - 1]);
+        Node current = tail;
+        for (int i = values.length - 1; i > 0; i--) {
+            current.next = new Node(values[i - 1]);
+            current = current.next;
+        }
+        return tail;
+    }
+
+
+    public static Node reverseLists(Node head) {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
 }

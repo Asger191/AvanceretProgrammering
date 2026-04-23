@@ -1,4 +1,4 @@
-package searchandsort.PortfolioComplexcity;
+package Portfolio.PortfolioComplexcity;
 
 public class CompareClass implements Comparable<CompareClass> {
 

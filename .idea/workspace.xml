@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="Big O mere eller mindre færdigt">
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/searchandsort/PortflioSort.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioSort/SortAssigment.java" afterDir="false" />
+    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="I gang med merged sort. bubble sort er færdig">
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/backtracking_exercise.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/bfs_dfs_exercise.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/graphs_preperration.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/reversedlinkedlist_exercise.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/algoritmik.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/ListFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/complexity.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/PortflioSort.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/sort.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/HashSetMutationDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/HashSetMutationDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/ListFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/ListFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/complexityAssignments/Assigment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/Assigment2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/complexityAssignments/CompareClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/CompareClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/Assigment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/Assigment2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/CompareClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/CompareClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioSort/SortAssigment.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +56,10 @@
     &quot;accountId&quot;: &quot;40223a58-63f4-40fe-b310-bef1cb5a3139&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -81,6 +95,7 @@
     "Application.algorithms.circularlinkedlist.Main.executor": "Run",
     "Application.algorithms.circularlinkedlistsolution.Main.executor": "Run",
     "Application.algorithms.floydexample.Main.executor": "Run",
+    "Application.algorithms.reversedlinkedlist.Main.executor": "Run",
     "Application.algorithms.reversedlinkedlistsolution.Main.executor": "Run",
     "Application.algorithms.treesearchsolution.SearchStrategies.executor": "Run",
     "Application.algorithms.undirectedgraphs.CycleDetector.executor": "Run",
@@ -100,7 +115,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kong/OneDrive - Erhvervsakademi København/Dokumenter/Valgfag/Materialer/F26/AvanceretProgrammeringF26",
+    "last_opened_file_path": "/Users/asgerjunker/Desktop/4.Semester/Avanceret programmering/src/main/java/Portfolio/PortfolioAlgoritmik",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,11 +131,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik" />
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort" />
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity" />
       <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\reflection\annotations_solution" />
       <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\algorithms\undirectedgraphs" />
-      <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\algorithms\treesearchsolution" />
-      <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\algorithms\graphsearchcycles" />
-      <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\algorithms\circularlistsolution" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\docs\designpatterns" />
@@ -138,39 +153,13 @@
       <recent name="concurrency.executorexercise" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.algorithms.circularlinkedlist.Main">
     <configuration name="Assigment2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="searchandsort.PortfolioComplexcity.Assigment2" />
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioComplexcity.Assigment2" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="searchandsort.PortfolioComplexcity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BigOExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="searchandsort.BigOExamples" />
-      <module name="AvanceretProgrammering" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="searchandsort.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashSetMutationDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="searchandsort.HashSetMutationDemo" />
-      <module name="AvanceretProgrammering" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="searchandsort.*" />
+          <option name="PATTERN" value="Portfolio.PortfolioComplexcity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -192,11 +181,37 @@
       </method>
     </configuration>
     <configuration name="SortAssigment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="searchandsort.PortfolioSort.SortAssigment" />
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioSort.SortAssigment" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="searchandsort.PortfolioSort.*" />
+          <option name="PATTERN" value="Portfolio.PortfolioSort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="algorithms.circularlinkedlist.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithms.circularlinkedlist.Main" />
+      <module name="AvanceretProgrammering" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.circularlinkedlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="algorithms.reversedlinkedlist.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithms.reversedlinkedlist.Main" />
+      <module name="AvanceretProgrammering" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.reversedlinkedlist.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -205,19 +220,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.algorithms.circularlinkedlist.Main" />
+      <item itemvalue="Application.algorithms.reversedlinkedlist.Main" />
       <item itemvalue="Application.SortAssigment" />
       <item itemvalue="Application.Assigment2" />
-      <item itemvalue="Application.BigOExamples" />
-      <item itemvalue="Application.HashSetMutationDemo" />
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.algorithms.circularlinkedlist.Main" />
+        <item itemvalue="Application.algorithms.reversedlinkedlist.Main" />
         <item itemvalue="Application.SortAssigment" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Assigment2" />
-        <item itemvalue="Application.BigOExamples" />
-        <item itemvalue="Application.HashSetMutationDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +300,10 @@
       <workItem from="1775912027806" duration="594000" />
       <workItem from="1775975157933" duration="2537000" />
       <workItem from="1776266039508" duration="7876000" />
-      <workItem from="1776330171237" duration="13582000" />
+      <workItem from="1776330171237" duration="13718000" />
+      <workItem from="1776681746823" duration="8423000" />
+      <workItem from="1776937570956" duration="14000" />
+      <workItem from="1776937610576" duration="11698000" />
     </task>
     <task id="LOCAL-00001" summary="Rookie kode til Opgave 1. i Kompleksitet">
       <option name="closed" value="true" />
@@ -303,7 +321,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776290651895</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="I gang med merged sort. bubble sort er færdig">
+      <option name="closed" value="true" />
+      <created>1776449475552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776449475553</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +338,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rookie kode til Opgave 1. i Kompleksitet" />
     <MESSAGE value="Big O mere eller mindre færdigt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Big O mere eller mindre færdigt" />
+    <MESSAGE value="I gang med merged sort. bubble sort er færdig" />
+    <option name="LAST_COMMIT_MESSAGE" value="I gang med merged sort. bubble sort er færdig" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
