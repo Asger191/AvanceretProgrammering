@@ -4,28 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="I gang med merged sort. bubble sort er færdig">
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/backtracking_exercise.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/bfs_dfs_exercise.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/graphs_preperration.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/reversedlinkedlist_exercise.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/algoritmik.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/ListFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/complexity.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/PortflioSort.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/sort.md" afterDir="false" />
+    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="Flyttet rundt i portfolio, og gået igang med Algoritmer. Alle portfolie opgaver er i Portfolio package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/ListFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/ListFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/reversedlinkedlist/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/searchandsort/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/Assigment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/Assigment2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioComplexcity/CompareClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/CompareClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/searchandsort/PortfolioSort/SortAssigment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/backtracking/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/backtracking/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/maze/MazeExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/maze/MazeExercise.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +73,7 @@
     "Application.TreeSetMutationDemo.executor": "Run",
     "Application.TryBacktrack.executor": "Run",
     "Application.WoodHandlerSolution.executor": "Run",
-    "Application.algorithms.backtracking.Main.executor": "Debug",
+    "Application.algorithms.backtracking.Main.executor": "Run",
     "Application.algorithms.circularlinkedlist.Main.executor": "Run",
     "Application.algorithms.circularlinkedlistsolution.Main.executor": "Run",
     "Application.algorithms.floydexample.Main.executor": "Run",
@@ -153,26 +135,13 @@
       <recent name="concurrency.executorexercise" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.algorithms.circularlinkedlist.Main">
-    <configuration name="Assigment2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioComplexcity.Assigment2" />
+  <component name="RunManager" selected="Application.MazeExercise">
+    <configuration name="MazeExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithms.maze.MazeExercise" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Portfolio.PortfolioComplexcity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="searchandsort.Main" />
-      <module name="AvanceretProgrammering" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="searchandsort.*" />
+          <option name="PATTERN" value="algorithms.maze.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -186,6 +155,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Portfolio.PortfolioSort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="algorithms.backtracking.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algorithms.backtracking.Main" />
+      <module name="AvanceretProgrammering" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="algorithms.backtracking.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -220,19 +202,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.MazeExercise" />
+      <item itemvalue="Application.algorithms.backtracking.Main" />
       <item itemvalue="Application.algorithms.circularlinkedlist.Main" />
       <item itemvalue="Application.algorithms.reversedlinkedlist.Main" />
       <item itemvalue="Application.SortAssigment" />
-      <item itemvalue="Application.Assigment2" />
-      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MazeExercise" />
+        <item itemvalue="Application.algorithms.backtracking.Main" />
         <item itemvalue="Application.algorithms.circularlinkedlist.Main" />
         <item itemvalue="Application.algorithms.reversedlinkedlist.Main" />
         <item itemvalue="Application.SortAssigment" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Assigment2" />
       </list>
     </recent_temporary>
   </component>
@@ -303,7 +285,7 @@
       <workItem from="1776330171237" duration="13718000" />
       <workItem from="1776681746823" duration="8423000" />
       <workItem from="1776937570956" duration="14000" />
-      <workItem from="1776937610576" duration="11698000" />
+      <workItem from="1776937610576" duration="22074000" />
     </task>
     <task id="LOCAL-00001" summary="Rookie kode til Opgave 1. i Kompleksitet">
       <option name="closed" value="true" />
@@ -329,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776449475553</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Flyttet rundt i portfolio, og gået igang med Algoritmer. Alle portfolie opgaver er i Portfolio package">
+      <option name="closed" value="true" />
+      <created>1776952073089</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776952073089</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +329,8 @@
     <MESSAGE value="Rookie kode til Opgave 1. i Kompleksitet" />
     <MESSAGE value="Big O mere eller mindre færdigt" />
     <MESSAGE value="I gang med merged sort. bubble sort er færdig" />
-    <option name="LAST_COMMIT_MESSAGE" value="I gang med merged sort. bubble sort er færdig" />
+    <MESSAGE value="Flyttet rundt i portfolio, og gået igang med Algoritmer. Alle portfolie opgaver er i Portfolio package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flyttet rundt i portfolio, og gået igang med Algoritmer. Alle portfolie opgaver er i Portfolio package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
