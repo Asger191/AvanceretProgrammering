@@ -2,52 +2,50 @@
 
 ## 1. BFS
 
-Kig på klassen `graphsearch.SearchStrategies`. I klassen er metoden `searchBFS(..)`.
+Kig på klassen `graphs.graphsearch.SearchStrategies`. I klassen er metoden `searchBFS(..)`.
 
 Din opgave er
 
+- Tegn den graf, der laves i `main`
 - Gå metodens kode igennem linje for linje og forklar for din sidemakker hvad den gør.
-- Tegn evt indholdet af køen iteration for hver iteration.
-- Overvej hvad det betyder, at vi bruger en `Queue` (hint: det er en FIFO struktur).
-
+- Tegn indholdet af køen for hver iteration.
+- Overvej hvad det betyder, at vi bruger `Queue` som referencetype (hint: det er en FIFO struktur).
+- Er grafen rettet eller urettet? Sammenlign med `undirectedgraphs.Node`.
+- Er kanterne vægtede eller uvægtede?
+- I `Node` er `neighbors` en `List`. Kunne det give problemer? Hvilken datastruktur ville være mere korrekt, og hvorfor?
 
 ## 2. DFS
 
-Kig på klassen `graphsearch.SearchStrategies`. I klassen er metoden `searchDFS(..)`.
+Kig på klassen `graphs.graphsearch.SearchStrategies`. I klassen er metoden `searchDFS(..)`.
 
 Din opgave er
 
 - Gå metodens kode igennem linje for linje og forklar for din sidemakker hvad den gør.
-- Tegn evt indholdet af stakken iteration for hver iteration.
-- Overvej hvad det betyder, at vi bruger et `Deque` (hint: det er en LIFO struktur).
+- Tegn indholdet af stakken for hver iteration.
+- Overvej hvad det betyder, at vi bruger `Deque` som referencetype (hint: det er en LIFO struktur).
 
-Bonusspørgsmål: Hvordan kan vi bruge `ArrayDeque` som både stak og kø?
+Bonusspørgsmål: Hvorfor kan vi bruge `ArrayDeque` som både stak og kø?
 
 ## 3. Implementer din egen BFS og DFS
 
-Kig på klasserne `treesearch.Node` og `treesearch.SearchStrategies`. Klassen `Node` repræsenterer en node i et træ,
-som kan have andre noder som børn.
+Kig på klasserne `graphs.treesearch.Node` og `graphs.treesearch.SearchStrategies`. Her arbejder vi med et træ. I stedet for `getNeighbors()` bruger vi `getChildren()` — men traversal-logikken er den samme.
 
-Opgaven er nu
+Din opgave er nu
 
 - Implementer metoderne `searchBFS(..)` og `searchDFS(..)`.
-- Hent inspiration i `graphsearch.SearchStrategies`. Du skal ikke kopiere koden fra `graphsearch` pakken,
-  men forstå hvordan der traverseres gennem grafen og gøre det samme i dine træer.
+- Hent inspiration i `graphs.graphsearch.SearchStrategies`. Du skal ikke kopiere koden, men forstå hvordan der traverseres og gøre det samme for træer.
 
-Bonusspørgsmål: hvordan udvider vi til at detektere cyklusser? Se klassen `graphsearchcycles.CycleDetector`.
+## Bonus: Cycle detection
 
-## Bonus
+I grafer kan der opstå cyklusser. Det kan der ikke i træer, som per definition er acykliske.
 
-Kig på pakken `undirectedgraphs` hvor der arbejdes med grafer, hvor kanterne er urettede. Det gør, at vi skal
-bruge en anden strategi for at finde ud af om der er cyklus i grafen.
+**Refleksionsspørgsmål:** Da vi arbejdede med hægtede lister brugte vi Floyd's Cycle Detection ("tortoise and hare") til at finde cyklusser. Hvorfor kan vi ikke bruge samme trick på grafer?
 
-I pseudokode ser det sådan ud:
-1. Start traversal fra en node
-2. Marker den som visited
-3. For hver nabo:
-    - a. Hvis nabo ikke er visited:
-        - DFS på nabo (med current som parent)
-    - b. Hvis nabo er visited:
-        - Hvis nabo != parent:
-            - Cyklus fundet!
-              i metoden og se om din tegning stemmer overens med output fra metoden. 
+Du har prøvet noget lignende i maze solveren. Hvad holdt du styr på der for at undgå at gå i ring?
+
+Kig på klassen `graphs.graphsearchcycles.CycleDetector` og se hvordan vi i stedet bruger DFS med et sæt (`inPath`) til at detektere cyklusser i rettede grafer.
+
+- Gå koden igennem linje for linje og forklar hvad `inPath` holder styr på.
+- Hvad sker der når vi backtracker? Hvorfor fjernes noden fra `inPath`?
+- Kør `main`-metoden og tegn hvad der sker.
+- Tilføj eventuelt nogle udprint af `inPath` for at følge hvad der sker. 
