@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f5f5f3;
+    color: #1a1a1a;
+    padding: 1.5rem;
+}
+
+#hw {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+button {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #efefef;
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+#cv {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e0e0de;
+    background: #efefed;
+}
+
+#legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 10px 0 6px;
+    font-size: 12px;
+    color: #666;
+    align-items: center;
+}
+
+.leg {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ld {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#log {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0de;
+    padding-top: 8px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.le {
+    padding: 2px 0;
+    border-bottom: 1px solid #f0f0ee;
+}

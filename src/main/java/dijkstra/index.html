@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dijkstra – husvisualisering</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="hw">
+    <h1>Dijkstra – korteste vej</h1>
+    <div id="controls">
+        <button id="btn-go">Start</button>
+        <button id="btn-step" disabled>Næste skridt</button>
+        <button id="btn-reset">Nulstil</button>
+    </div>
+    <canvas id="cv" height="460"></canvas>
+    <div id="legend">
+        <span class="leg"><span class="ld" style="background:#D3D1C7;outline:1.5px solid #888780"></span>Ubesøgt</span>
+        <span class="leg"><span class="ld" style="background:#EF9F27"></span>I kø</span>
+        <span class="leg"><span class="ld" style="background:#7F77DD"></span>Behandles</span>
+        <span class="leg"><span class="ld" style="background:#1D9E75"></span>Færdig</span>
+        <span class="leg"><span class="ld" style="background:#E24B4A"></span>Korteste vej</span>
+    </div>
+    <div id="log"></div>
+</div>
+<script src="dijkstra.js"></script>
+</body>
+</html>
