@@ -4,17 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="c">
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/diijkstra.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/dijkstra.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/DijkstraJS.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/MinDijsktra.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/dijsktra.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dijkstra/styles.css" afterDir="false" />
+    <list default="true" id="4a9a5430-e83d-4879-8d5e-c9086862fc55" name="Changes" comment="Lavet kode og visualisering til Dijkstra. Genbrugt meget af Signes kode til det. Samt tilføjet en masse kommentarer til at hjælpe med at forstå/huske koden">
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/TemplateMethodPattern.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/designpatterns_portfolio.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/designpatterns_preperation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/designpatterns_test_code.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAStar/CityNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAStar/CitySolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAStar/astar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAStar/astar.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/NQueens.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/TryBacktrack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/maze/MazeExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/lazy/EagerCalculations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/lazy/LazyCalculations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/lazy/lazy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/BigOExamples.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/SearchExamples.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/BubbleSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/MergeSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/QuickSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/SortAssignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/SortStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/CustomPattern/Sorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/ProxyAccessController/AccessController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/ProxyAccessController/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/ProxyAccessController/SecureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/ProxyAccessController/SecureServiceInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/ProxyAccessController/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/StrategyAStar/EuclideanHeuristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/StrategyAStar/HeuristicStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/StrategyAStar/ManhattanHeuristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/StrategyAStar/MazeSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/StrategyAStar/ZeroHeuristic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns/designpatterns_portfolio.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/diijkstra.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/lazy/EagerCalculations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/algorithms/lazy/lazy.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/adapter/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/designpatterns/composite/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/astar/MazeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/graphs/astar/MazeSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reflection/annotations/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/WeighedNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dijkstra/WeighedNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_exercises/algorithms/diijkstra.md" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/diijkstra.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_exercises/algorithms/dijkstra.md" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_exercises/algorithms/dijkstra.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_exercises/designpatterns/Cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/Cases.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio_exercises/designpatterns/designpatterns_exercises.md" beforeDir="false" afterPath="$PROJECT_DIR$/portfolio_exercises/designpatterns/designpatterns_exercises.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/ListFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/circularlinkedlist/ListFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/circularlinkedlist/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlist/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/circularlinkedlist/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/Assigment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity/Assigment2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/ListFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/ListFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/circularlinkedlist/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/circularlinkedlistKommentar/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/lazy/LazyCalculations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/lazy/LazyCalculations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/builder/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/builder/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/command/LightOffCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/LightOffCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/command/LightOnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/LightOnCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/designpatterns/command/RemoteControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/designpatterns/command/RemoteControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/DijkstraJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/DijkstraJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/MinDijsktra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/MinDijsktra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/WeighedNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/WeighedNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/dijsktra.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/dijsktra.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dijkstra/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra/dijkstra/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reflection/annotations/AccessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reflection/annotations/AccessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reflection/annotations/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reflection/annotations/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reflection/annotations/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reflection/annotations/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reflection/annotations/SecureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reflection/annotations/SecureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reflection/fieldsandmethods/MysteryInspector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reflection/fieldsandmethods/MysteryInspector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +91,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="AnnotationType" />
         <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -69,19 +136,27 @@
   "keyToString": {
     "Application.Assigment2.executor": "Run",
     "Application.BigOExamples.executor": "Run",
+    "Application.CitySolver.executor": "Run",
     "Application.CycleDetector.executor": "Run",
     "Application.Dijkstra.executor": "Run",
+    "Application.EagerCalculations.executor": "Run",
     "Application.HashSetMutationDemo.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MazeExercise.executor": "Run",
+    "Application.LazyCalculations.executor": "Debug",
+    "Application.Main.executor": "Debug",
+    "Application.MazeExercise.executor": "Debug",
     "Application.MazeSolution.executor": "Debug",
+    "Application.MazeSolver.executor": "Run",
     "Application.MinDijsktra.executor": "Run",
     "Application.MoneyHandler.executor": "Run",
     "Application.MysteryInspector.executor": "Run",
     "Application.MysteryInspectorSolution.executor": "Run",
+    "Application.Portfolio.PortfolioAlgoritmik.circularlinkedlistKommentar.Main.executor": "Run",
+    "Application.Portfolio.PortfolioComplexcity.Main.executor": "Run",
+    "Application.Portfolio.PortfolioDesignpatterns.ProxyAccessController.Main.executor": "Run",
     "Application.Quiz.executor": "Run",
     "Application.SearchStrategies.executor": "Debug",
-    "Application.SortAssigment.executor": "Run",
+    "Application.SortAssigment.executor": "Debug",
+    "Application.SortAssignment.executor": "Run",
     "Application.TreeSetMutationDemo.executor": "Run",
     "Application.TryBacktrack.executor": "Run",
     "Application.WoodHandlerSolution.executor": "Run",
@@ -99,12 +174,18 @@
     "Application.concurrency.observersolutionwiththreads.Main.executor": "Run",
     "Application.concurrency.synchronization.Main.executor": "Run",
     "Application.concurrency.threadandrunnable.Main.executor": "Run",
+    "Application.designpatterns.builder.Main.executor": "Run",
+    "Application.designpatterns.command.Main.executor": "Run",
+    "Application.designpatterns.composite.Main.executor": "Run",
     "Application.designpatterns.exercises.Main.executor": "Run",
     "Application.designpatterns.main.Main.executor": "Run",
     "Application.reflection.annotations.Main.executor": "Run",
     "Application.reflection.annotations_solution.Main.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.astar.html.executor": "Run",
+    "JavaScript Debug.dijsktra.html (1).executor": "Run",
     "JavaScript Debug.dijsktra.html.executor": "Run",
+    "Node.js.DijkstraJS.js (1).executor": "Run",
     "Node.js.DijkstraJS.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -112,7 +193,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/asgerjunker/Desktop/4.Semester/Avanceret programmering/src/main/java/Portfolio/PortfolioAlgoritmik",
+    "last_opened_file_path": "/Users/asgerjunker/Desktop/4.Semester/Avanceret programmering/src/main/java/Portfolio/PortfolioDesignpatterns",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -123,17 +204,17 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDesignpatterns" />
       <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik" />
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking" />
+      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioDijkstra" />
       <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort" />
-      <recent name="$PROJECT_DIR$/src/main/java/Portfolio/PortfolioComplexcity" />
-      <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\reflection\annotations_solution" />
-      <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\src\main\java\algorithms\undirectedgraphs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kong\OneDrive - EFIF\Dokumenter\Valgfag\AvanceretProgrammering\docs\designpatterns" />
@@ -144,20 +225,33 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Portfolio.PortfolioDesignpatterns.ProxyAccessController" />
+      <recent name="Portfolio.PortfolioDesignpatterns" />
+      <recent name="Portfolio.PortfolioComplexcity" />
       <recent name="algorithms.mazesolution" />
       <recent name="algorithms.reversedlinkedlist" />
-      <recent name="algorithms.reversedlinkedlistsolution" />
-      <recent name="algorithms.circularlinkedlist" />
-      <recent name="concurrency.executorexercise" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MinDijsktra">
-    <configuration name="Dijkstra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dijkstra.Dijkstra" />
+  <component name="RunManager" selected="Application.SortAssignment">
+    <configuration name="CitySolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioAStar.CitySolver" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dijkstra.*" />
+          <option name="PATTERN" value="Portfolio.PortfolioAStar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MazeSolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graphs.astar.MazeSolver" />
+      <module name="AvanceretProgrammering" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graphs.astar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -166,11 +260,11 @@
       </method>
     </configuration>
     <configuration name="MinDijsktra" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dijkstra.MinDijsktra" />
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioDijkstra.dijkstra.MinDijsktra" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dijkstra.*" />
+          <option name="PATTERN" value="Portfolio.PortfolioDijkstra.dijkstra.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,12 +272,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WoodHandlerSolution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="algorithms.greedy.WoodHandlerSolution" />
+    <configuration name="Portfolio.PortfolioDesignpatterns.ProxyAccessController.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioDesignpatterns.ProxyAccessController.Main" />
       <module name="AvanceretProgrammering" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="algorithms.greedy.*" />
+          <option name="PATTERN" value="Portfolio.PortfolioDesignpatterns.ProxyAccessController.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -191,26 +285,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dijsktra.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Avanceret programmering/AvanceretProgrammering/dijkstra/dijsktra.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="DijkstraJS.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/main/java/dijkstra/DijkstraJS.js" working-dir="$PROJECT_DIR$/src/main/java/dijkstra">
-      <method v="2" />
+    <configuration name="SortAssignment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Portfolio.PortfolioDesignpatterns.CustomPattern.SortAssignment" />
+      <module name="AvanceretProgrammering" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Portfolio.PortfolioDesignpatterns.CustomPattern.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Dijkstra" />
+      <item itemvalue="Application.CitySolver" />
+      <item itemvalue="Application.MazeSolver" />
       <item itemvalue="Application.MinDijsktra" />
-      <item itemvalue="Application.WoodHandlerSolution" />
-      <item itemvalue="JavaScript Debug.dijsktra.html" />
-      <item itemvalue="Node.js.DijkstraJS.js" />
+      <item itemvalue="Application.Portfolio.PortfolioDesignpatterns.ProxyAccessController.Main" />
+      <item itemvalue="Application.SortAssignment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SortAssignment" />
+        <item itemvalue="Application.Portfolio.PortfolioDesignpatterns.ProxyAccessController.Main" />
+        <item itemvalue="Application.MazeSolver" />
+        <item itemvalue="Application.CitySolver" />
         <item itemvalue="Application.MinDijsktra" />
-        <item itemvalue="JavaScript Debug.dijsktra.html" />
-        <item itemvalue="Node.js.DijkstraJS.js" />
-        <item itemvalue="Application.Dijkstra" />
-        <item itemvalue="Application.WoodHandlerSolution" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +383,11 @@
       <workItem from="1776681746823" duration="8423000" />
       <workItem from="1776937570956" duration="14000" />
       <workItem from="1776937610576" duration="29534000" />
-      <workItem from="1777891198410" duration="7356000" />
+      <workItem from="1777891198410" duration="7845000" />
+      <workItem from="1778150825181" duration="17928000" />
+      <workItem from="1778506772190" duration="7388000" />
+      <workItem from="1779101505347" duration="18168000" />
+      <workItem from="1779359612702" duration="38659000" />
     </task>
     <task id="LOCAL-00001" summary="Rookie kode til Opgave 1. i Kompleksitet">
       <option name="closed" value="true" />
@@ -324,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777896378431</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Lavet kode og visualisering til Dijkstra. Genbrugt meget af Signes kode til det. Samt tilføjet en masse kommentarer til at hjælpe med at forstå/huske koden">
+      <option name="closed" value="true" />
+      <created>1778098470449</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1778098470449</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +449,8 @@
     <MESSAGE value="I gang med merged sort. bubble sort er færdig" />
     <MESSAGE value="Flyttet rundt i portfolio, og gået igang med Algoritmer. Alle portfolie opgaver er i Portfolio package" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="Lavet kode og visualisering til Dijkstra. Genbrugt meget af Signes kode til det. Samt tilføjet en masse kommentarer til at hjælpe med at forstå/huske koden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lavet kode og visualisering til Dijkstra. Genbrugt meget af Signes kode til det. Samt tilføjet en masse kommentarer til at hjælpe med at forstå/huske koden" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,16 +459,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/algorithms/backtracking/NQueens.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/algorithms/backtracking/NQueens.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/algorithms/backtracking/NQueens.java</url>
@@ -375,8 +479,48 @@
           </properties>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java</url>
+          <line>134</line>
+          <properties class="Portfolio.PortfolioSort.SortAssigment" method="sortByQuicksort">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Portfolio/PortfolioSort/SortAssigment.java</url>
+          <line>152</line>
+          <properties class="Portfolio.PortfolioSort.SortAssigment" method="customPartition">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/maze/MazeExercise.java</url>
+          <line>23</line>
+          <properties class="Portfolio.PortfolioAlgoritmik.backtracking.maze.MazeExercise" method="solveMaze">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Portfolio/PortfolioAlgoritmik/backtracking/NQueens.java</url>
+          <line>19</line>
+          <properties class="Portfolio.PortfolioAlgoritmik.backtracking.NQueens" method="placeQueen">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AvanceretProgrammering$MoneyHandler.ic" NAME="MoneyHandler Coverage Results" MODIFIED="1746275998994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

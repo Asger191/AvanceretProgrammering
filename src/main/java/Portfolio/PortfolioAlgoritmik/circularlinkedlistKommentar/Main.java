@@ -1,8 +1,5 @@
-package algorithms.circularlinkedlist;
+package Portfolio.PortfolioAlgoritmik.circularlinkedlistKommentar;
 
-
-
-import java.util.List;
 
 public class Main {
 
@@ -29,14 +26,16 @@ public class Main {
 
         while(fast != null && fast.next != null){
 
-            slow = slow.next;
-            fast = fast.next.next;
-            step++;
-
             // Udskriver hvor skilpadden og haren er efter hvert skridt
             System.out.println("Skridt " + step + ":");
             System.out.println("  Skilpadde (slow) -> node med værdi: " + slow.value);
             System.out.println("  Hare (fast)       -> node med værdi: " + fast.value);
+
+            slow = slow.next;
+            fast = fast.next.next;
+            step++;
+
+
 
             if(slow == fast){
                 System.out.println("  >> Skilpadde og hare mødes! Cyklus opdaget ved node med værdi: " + slow.value);

@@ -6,14 +6,14 @@ public class SortAssigment {
     public static void main(String [] args){
 
         Random ran = new Random();
-        int[] numbers = new int[100];
-        int[] numbers2 = new int[100];
-        int[] numbers3 = new int[100];
+        int[] numbers = new int[20];
+        int[] numbers2 = new int[20];
+        int[] numbers3 = new int[20];
 
-        for(int i = 0; i<100; i++){
-            numbers[i] = ran.nextInt(1000);
-            numbers2[i] = ran.nextInt(1000);
-            numbers3[i] = ran.nextInt(1000);
+        for(int i = 0; i<20; i++){
+            numbers[i] = ran.nextInt(100);
+            numbers2[i] = ran.nextInt(100);
+            numbers3[i] = ran.nextInt(100);
 
         }
 
@@ -148,12 +148,13 @@ public class SortAssigment {
         }
     }
 
-
+    //1,8,6,9,2,4,5
     // Partitionerer arrayet og returnerer det endelige index for pivot-elementet
     public static int customPartition(int[] numbers, int low, int high){
 
         // Vælg det sidste element som pivot
         int pivotValue = numbers[high];
+
 
         // i holder styr på grænsen mellem elementer mindre og større end pivot
         int i = low - 1;
@@ -169,6 +170,18 @@ public class SortAssigment {
                 int temp = numbers[i];
                 numbers[i] = numbers[j];
                 numbers[j] = temp;
+
+                //1,2,4,5,8,6,9
+
+                //pivot = 9
+
+                // i = 5
+                // j = 5
+
+                // temp = 6
+
+
+
             }
         }
 
@@ -183,3 +196,4 @@ public class SortAssigment {
 
 
 }
+

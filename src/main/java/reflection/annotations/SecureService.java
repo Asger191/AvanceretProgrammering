@@ -3,6 +3,7 @@ package reflection.annotations;
 public class SecureService {
 
     @Role("admin")
+    @Log(filename = "SecureService")
     public void deleteAllUsers() {
         System.out.println("Alle brugere er slettet.");
     }

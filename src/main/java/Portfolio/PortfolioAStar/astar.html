@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Visualisering</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f5f4ef;
+            color: #222;
+            padding: 1.5rem;
+        }
+        h1 { font-size: 20px; font-weight: 500; margin-bottom: 1rem; }
+        .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; align-items: center; }
+        .controls label { font-size: 13px; color: #555; display: flex; align-items: center; gap: 5px; }
+        select {
+            font-size: 13px; padding: 4px 8px; border-radius: 8px;
+            border: 0.5px solid #bbb; background: #fff; color: #222;
+        }
+        button {
+            font-size: 13px; padding: 5px 14px; border-radius: 8px;
+            border: 0.5px solid #bbb; background: #fff; color: #222;
+            cursor: pointer; transition: background .15s;
+        }
+        button:hover { background: #eee; }
+        button:disabled { opacity: 0.4; cursor: default; }
+        button.primary { background: #dbeeff; color: #1456a0; border-color: #90bde8; }
+        .speed-row {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 13px; color: #555; margin-bottom: 10px;
+        }
+        .speed-row input[type=range] { width: 140px; }
+        canvas { display: block; border-radius: 8px; }
+        .info-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .stat {
+            background: #eceae1; border-radius: 8px;
+            padding: 7px 12px; font-size: 13px;
+        }
+        .stat strong { font-weight: 500; display: block; font-size: 11px; color: #666; }
+        .legend {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            margin-top: 10px; font-size: 12px; color: #555; align-items: center;
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-box { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
+        #log {
+            margin-top: 10px; max-height: 130px; overflow-y: auto;
+            font-size: 12px; font-family: monospace;
+            border: 0.5px solid #ddd; border-radius: 8px;
+            padding: 8px 10px; background: #eceae1; line-height: 1.7;
+        }
+        .log-line { color: #666; }
+        .log-line.hl { color: #2a7a2a; }
+        .log-line.path { color: #1456a0; }
+
+        @media (prefers-color-scheme: dark) {
+            body { background: #1e1e1c; color: #ddd; }
+            select, button { background: #2a2a28; color: #ddd; border-color: #555; }
+            button:hover { background: #333; }
+            button.primary { background: #0c2a4a; color: #7ab8f5; border-color: #2a5a9a; }
+            .stat { background: #2a2a28; }
+            .stat strong { color: #999; }
+            .controls label { color: #999; }
+            .speed-row { color: #999; }
+            .legend { color: #999; }
+            #log { background: #2a2a28; border-color: #444; }
+            .log-line { color: #999; }
+            .log-line.hl { color: #5dba5d; }
+            .log-line.path { color: #7ab8f5; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>A* Korteste vej — bykort</h1>
+
+<div class="controls">
+    <label>Fra: <select id="sel-from"></select></label>
+    <label>Til: <select id="sel-to"></select></label>
+    <label>Heuristik:
+        <select id="sel-h">
+            <option value="manhattan">Manhattan</option>
+            <option value="euclidean">Euklidisk</option>
+            <option value="chebyshev">Chebyshev</option>
+        </select>
+    </label>
+    <button class="primary" id="btn-start">▶ Start</button>
+    <button id="btn-pause" disabled>⏸ Pause</button>
+    <button id="btn-reset">↺ Nulstil</button>
+</div>
+
+<div class="speed-row">
+    <span>Hastighed:</span>
+    <input type="range" id="speed" min="1" max="13" value="7" step="1">
+    <span id="speed-label" style="font-weight:500;min-width:100px"></span>
+</div>
+
+<canvas id="cv"></canvas>
+
+<div class="legend">
+    <span style="font-weight:500;color:#222">Forklaring:</span>
+    <div class="legend-item"><div class="legend-box" style="background:#4B8ECC"></div> By</div>
+    <div class="legend-item"><div class="legend-box" style="background:#e5e3da;border:0.5px solid #bbb"></div> Åben vej</div>
+    <div class="legend-item"><div class="legend-box" style="background:#3a3a3a"></div> Mur</div>
+    <div class="legend-item"><div class="legend-box" style="background:#c5e6b7"></div> Frontier (åben kø)</div>
+    <div class="legend-item"><div class="legend-box" style="background:#f5c97a"></div> Besøgt — viser g+Δrækker+Δkol=f</div>
+    <div class="legend-item"><div class="legend-box" style="background:#e87040"></div> Korteste vej</div>
+</div>
+
+<div class="info-row">
+    <div class="stat"><strong>Skridt</strong><span id="stat-step">0</span></div>
+    <div class="stat"><strong>Frontier</strong><span id="stat-open">0</span></div>
+    <div class="stat"><strong>Besøgte</strong><span id="stat-visited">0</span></div>
+    <div class="stat"><strong>Vejlængde</strong><span id="stat-path">–</span></div>
+    <div class="stat"><strong>Nuværende f=g+h</strong><span id="stat-f">–</span></div>
+</div>
+
+<div id="log"></div>
+
+<script>
+    const ROWS = 10, COLS = 10, CELL = 52, PAD = 2;
+
+    const baseGrid = [
+        [0,0,1,0,0,0,1,0,0,0],
+        [0,1,0,0,1,0,0,0,1,0],
+        [0,0,0,1,0,0,0,1,0,0],
+        [1,0,0,0,0,1,0,0,0,1],
+        [0,0,1,0,0,0,0,1,0,0],
+        [0,1,0,0,1,0,0,0,0,0],
+        [0,0,0,1,0,0,1,0,1,0],
+        [1,0,0,0,0,1,0,0,0,0],
+        [0,0,1,0,0,0,0,1,0,0],
+        [0,0,0,0,1,0,0,0,0,0],
+    ];
+
+    const cities = [
+        { name: "Nordby",  row: 0, col: 0 },
+        { name: "Østby",   row: 0, col: 9 },
+        { name: "Vestby",  row: 9, col: 0 },
+        { name: "Sydby",   row: 9, col: 9 },
+        { name: "Midtby",  row: 4, col: 4 },
+        { name: "Skovby",  row: 2, col: 7 },
+        { name: "Havneby", row: 7, col: 2 },
+        { name: "Bjergby", row: 5, col: 8 },
+    ];
+
+    const cityMap = {};
+    cities.forEach(c => { cityMap[`${c.row},${c.col}`] = c; baseGrid[c.row][c.col] = 0; });
+
+    const cv = document.getElementById('cv');
+    const ctx = cv.getContext('2d');
+    const W = COLS * CELL + PAD * 2, H = ROWS * CELL + PAD * 2;
+    cv.width = W; cv.height = H;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+
+    const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const C = {
+        wall:    dark ? '#2a2a2a' : '#3d3d3a',
+        open:    dark ? '#2e2e2a' : '#eeece3',
+        open_q:  dark ? '#2e4d28' : '#c5e6b7',
+        visited: dark ? '#5a4415' : '#f5c97a',
+        path:    '#e87040',
+        start:   '#4BAF7A',
+        end:     '#CC4B7A',
+        city:    '#4B8ECC',
+        cur:     dark ? '#fff' : '#111',
+    };
+
+    const SPEED_MS  = [5000,3000,2000,1200,800,500,300,180,120,80,50,30,15];
+    const SPEED_LBL = ['5 s/skridt','3 s/skridt','2 s/skridt','1.2 s/skridt','0.8 s/skridt',
+        '0.5 s/skridt','0.3 s/skridt','0.18 s/skridt','0.12 s/skridt',
+        '80 ms/skridt','50 ms/skridt','30 ms/skridt','15 ms/skridt'];
+
+    function getSpeedMs() { return SPEED_MS[+document.getElementById('speed').value - 1]; }
+    function updateSpeedLabel() {
+        document.getElementById('speed-label').textContent = SPEED_LBL[+document.getElementById('speed').value - 1];
+    }
+    updateSpeedLabel();
+    document.getElementById('speed').addEventListener('input', function() {
+        updateSpeedLabel();
+        if (S && !S.done && !paused) startTimer();
+    });
+
+    // Populate selects
+    [document.getElementById('sel-from'), document.getElementById('sel-to')].forEach(sel => {
+        cities.forEach((c, i) => {
+            const o = document.createElement('option');
+            o.value = i; o.textContent = c.name; sel.appendChild(o);
+        });
+    });
+    document.getElementById('sel-from').value = 0;
+    document.getElementById('sel-to').value = 3;
+
+    function hManhattan(a,b) { return Math.abs(a.r-b.r) + Math.abs(a.c-b.c); }
+    function hEuclidean(a,b) { return Math.sqrt((a.r-b.r)**2 + (a.c-b.c)**2); }
+    function hChebyshev(a,b) { return Math.max(Math.abs(a.r-b.r), Math.abs(a.c-b.c)); }
+    function getHFn() {
+        const v = document.getElementById('sel-h').value;
+        return v==='euclidean' ? hEuclidean : v==='chebyshev' ? hChebyshev : hManhattan;
+    }
+
+    let S = null, timer = null, paused = false;
+
+    function initAStar() {
+        const src  = cities[+document.getElementById('sel-from').value];
+        const dst  = cities[+document.getElementById('sel-to').value];
+        const h    = getHFn();
+        const goal = { r: dst.row, c: dst.col };
+
+        const gCost = {}, hCache = {}, fCache = {}, prev = {};
+        const visited = new Set(), frontier = [];
+
+        const sk = `${src.row},${src.col}`;
+        const hv = h({r:src.row, c:src.col}, goal);
+        gCost[sk] = 0; hCache[sk] = hv; fCache[sk] = hv;
+        frontier.push({ r: src.row, c: src.col, g: 0, f: hv });
+
+        S = { frontier, gCost, hCache, fCache, prev, visited, goal, src, dst, h,
+            done: false, found: false, path: null, step: 0, current: null };
+    }
+
+    function stepAStar() {
+        if (!S || S.done) return;
+        S.frontier.sort((a,b) => a.f - b.f || a.g - b.g);
+        if (!S.frontier.length) { S.done = true; addLog("Ingen vej fundet!"); return; }
+
+        const cur = S.frontier.shift();
+        S.current = cur;
+        const k = `${cur.r},${cur.c}`;
+        S.step++;
+
+        if (S.visited.has(k)) { stepAStar(); return; }
+        S.visited.add(k);
+
+        const cn = cityMap[k];
+        const nm = cn ? cn.name : `(${cur.r},${cur.c})`;
+        const dr = Math.abs(cur.r - S.goal.r), dc = Math.abs(cur.c - S.goal.c);
+        const hv = S.hCache[k];
+        addLog(`Skridt ${S.step}: ${nm} — g=${cur.g.toFixed(0)}, h=${hv.toFixed(1)} (${dr}+${dc}=${dr+dc}→h), f=${cur.f.toFixed(1)}`);
+
+        if (cur.r === S.goal.r && cur.c === S.goal.c) {
+            S.done = true; S.found = true;
+            const path = []; let node = `${S.goal.r},${S.goal.c}`;
+            while (node) { path.unshift(node); node = S.prev[node]; }
+            S.path = path;
+            addLog(`✓ Fandt vej til ${S.dst.name}! Længde: ${path.length - 1} skridt`, 'path');
+            draw(); updateStats(); return;
+        }
+
+        for (const [dr2,dc2] of [[-1,0],[1,0],[0,-1],[0,1]]) {
+            const nr = cur.r+dr2, nc = cur.c+dc2;
+            if (nr<0||nr>=ROWS||nc<0||nc>=COLS) continue;
+            if (baseGrid[nr][nc] === 1) continue;
+            const nk = `${nr},${nc}`;
+            if (S.visited.has(nk)) continue;
+            const ng = cur.g + 1;
+            if (ng < (S.gCost[nk] ?? Infinity)) {
+                S.gCost[nk] = ng;
+                const nh = S.h({r:nr,c:nc}, S.goal);
+                S.hCache[nk] = nh; S.fCache[nk] = ng+nh;
+                S.prev[nk] = k;
+                S.frontier.push({r:nr,c:nc,g:ng,f:ng+nh});
+            }
+        }
+        updateStats(); draw();
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        if (!S || S.done || paused) return;
+        timer = setInterval(() => {
+            if (!S || S.done || paused) { clearInterval(timer); return; }
+            stepAStar();
+            if (S.done) { clearInterval(timer); document.getElementById('btn-pause').disabled = true; }
+        }, getSpeedMs());
+    }
+
+    document.getElementById('btn-start').addEventListener('click', () => {
+        clearInterval(timer); paused = false;
+        document.getElementById('log').innerHTML = '';
+        initAStar();
+        const hname = document.getElementById('sel-h').options[document.getElementById('sel-h').selectedIndex].text;
+        addLog(`Søger: ${S.src.name} → ${S.dst.name} (${hname})`);
+        document.getElementById('btn-pause').disabled = false;
+        document.getElementById('btn-pause').textContent = '⏸ Pause';
+        document.getElementById('btn-start').disabled = true;
+        updateStats(); draw(); startTimer();
+    });
+
+    document.getElementById('btn-pause').addEventListener('click', () => {
+        paused = !paused;
+        document.getElementById('btn-pause').textContent = paused ? '▶ Fortsæt' : '⏸ Pause';
+        if (!paused) startTimer(); else clearInterval(timer);
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+        clearInterval(timer); paused = false; S = null;
+        document.getElementById('log').innerHTML = '';
+        document.getElementById('btn-pause').disabled = true;
+        document.getElementById('btn-pause').textContent = '⏸ Pause';
+        document.getElementById('btn-start').disabled = false;
+        ['stat-step','stat-open','stat-visited','stat-path','stat-f'].forEach(id => {
+            document.getElementById(id).textContent = (id==='stat-path'||id==='stat-f') ? '–' : '0';
+        });
+        drawEmpty();
+    });
+
+    function updateStats() {
+        if (!S) return;
+        document.getElementById('stat-step').textContent    = S.step;
+        document.getElementById('stat-open').textContent    = S.frontier.length;
+        document.getElementById('stat-visited').textContent = S.visited.size;
+        document.getElementById('stat-path').textContent    = S.path ? (S.path.length-1)+' skridt' : '–';
+        document.getElementById('stat-f').textContent       = S.current ? S.current.f.toFixed(2) : '–';
+    }
+
+    function addLog(msg, cls='') {
+        const el = document.getElementById('log');
+        const d = document.createElement('div');
+        d.className = 'log-line' + (cls ? ' '+cls : '');
+        d.textContent = msg;
+        el.appendChild(d);
+        el.scrollTop = el.scrollHeight;
+    }
+
+    function drawCell(r, c, frontierMap, pathSet) {
+        const x = PAD+c*CELL, y = PAD+r*CELL;
+        const k = `${r},${c}`;
+        const isWall  = baseGrid[r][c] === 1;
+        const isCity  = !!cityMap[k];
+        const isCur   = S && S.current && `${S.current.r},${S.current.c}` === k;
+        const inFront = frontierMap && !!frontierMap[k];
+        const inVis   = S && S.visited.has(k);
+        const inPath  = pathSet && pathSet.has(k);
+
+        let fill = C.open;
+        if      (isWall)  fill = C.wall;
+        else if (inPath)  fill = C.path;
+        else if (inVis)   fill = C.visited;
+        else if (inFront) fill = C.open_q;
+
+        ctx.fillStyle = fill;
+        ctx.beginPath(); ctx.roundRect(x+1,y+1,CELL-2,CELL-2,4); ctx.fill();
+
+        if (isCur && S && !S.done) {
+            ctx.strokeStyle = C.cur; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.roundRect(x+2,y+2,CELL-4,CELL-4,3); ctx.stroke();
+        }
+
+        if (isCity) {
+            const city = cityMap[k], cx = x+CELL/2, cy = y+CELL/2;
+            const isStart = S && city.name === S.src.name;
+            const isEnd   = S && city.name === S.dst.name;
+            ctx.fillStyle = isStart ? C.start : isEnd ? C.end : C.city;
+            ctx.beginPath(); ctx.arc(cx,cy-5,10,0,Math.PI*2); ctx.fill();
+            ctx.fillStyle = '#fff'; ctx.font = 'bold 8px sans-serif'; ctx.textAlign = 'center';
+            ctx.fillText(city.name.slice(0,3), cx, cy-2);
+            ctx.fillStyle = dark ? '#ccc' : '#222'; ctx.font = '8px sans-serif';
+            ctx.fillText(city.name, cx, cy+13);
+            return;
+        }
+
+        if (!isWall && S && (inVis || inFront)) {
+            const g  = S.gCost[k];
+            const hv = S.hCache[k];
+            const fv = S.fCache[k];
+            if (g !== undefined && hv !== undefined && fv !== undefined) {
+                ctx.font = '8px sans-serif'; ctx.textAlign = 'center';
+                ctx.fillStyle = dark ? '#9bd' : '#245';
+                ctx.fillText('g='+g.toFixed(0), x+CELL/2, y+13);
+
+                const dr  = Math.abs(r - S.goal.r);
+                const dc2 = Math.abs(c - S.goal.c);
+                const hLabel = document.getElementById('sel-h').value === 'manhattan'
+                    ? `${g.toFixed(0)}+${dr}+${dc2}=${fv.toFixed(0)}`
+                    : `${g.toFixed(0)}+${hv.toFixed(1)}=${fv.toFixed(1)}`;
+
+                ctx.fillStyle = dark ? '#dca' : '#530';
+                ctx.fillText(hLabel, x+CELL/2, y+25);
+
+                ctx.font = 'bold 9px sans-serif';
+                ctx.fillStyle = dark ? '#fff' : '#111';
+                ctx.fillText('f='+fv.toFixed(1), x+CELL/2, y+38);
+            }
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0,0,W,H);
+        if (!S) { drawEmpty(); return; }
+        const frontierMap = {};
+        S.frontier.forEach(n => { frontierMap[`${n.r},${n.c}`] = n; });
+        const pathSet = new Set(S.path || []);
+
+        for (let r=0; r<ROWS; r++) for (let c=0; c<COLS; c++) drawCell(r,c,frontierMap,pathSet);
+
+        if (S.path && S.path.length > 1) {
+            ctx.strokeStyle = C.path; ctx.lineWidth = 3;
+            ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+            ctx.beginPath();
+            S.path.forEach((pk,i) => {
+                const [pr,pc] = pk.split(',').map(Number);
+                const px = PAD+pc*CELL+CELL/2, py = PAD+pr*CELL+CELL/2;
+                i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+            });
+            ctx.stroke();
+        }
+
+        ctx.font = '8px sans-serif'; ctx.textAlign = 'right';
+        ctx.fillStyle = dark ? '#9bd' : '#245';
+        ctx.fillText('g = skridt fra start', W-2, H-42);
+        ctx.fillStyle = dark ? '#dca' : '#530';
+        ctx.fillText('g+Δrækker+Δkolonner = f  (Manhattan)', W-2, H-28);
+        ctx.font = 'bold 8px sans-serif'; ctx.fillStyle = dark ? '#fff' : '#111';
+        ctx.fillText('f sorterer køen', W-2, H-14);
+    }
+
+    function drawEmpty() {
+        ctx.clearRect(0,0,W,H);
+        for (let r=0; r<ROWS; r++) for (let c=0; c<COLS; c++) {
+            const x = PAD+c*CELL, y = PAD+r*CELL, k = `${r},${c}`;
+            ctx.fillStyle = baseGrid[r][c]===1 ? C.wall : C.open;
+            ctx.beginPath(); ctx.roundRect(x+1,y+1,CELL-2,CELL-2,4); ctx.fill();
+            if (cityMap[k]) {
+                const ct = cityMap[k], cx = x+CELL/2, cy = y+CELL/2;
+                ctx.fillStyle = C.city;
+                ctx.beginPath(); ctx.arc(cx,cy-5,10,0,Math.PI*2); ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 8px sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText(ct.name.slice(0,3), cx, cy-2);
+                ctx.fillStyle = dark ? '#ccc' : '#222'; ctx.font = '8px sans-serif';
+                ctx.fillText(ct.name, cx, cy+13);
+            }
+        }
+    }
+
+    drawEmpty();
+</script>
+</body>
+</html>

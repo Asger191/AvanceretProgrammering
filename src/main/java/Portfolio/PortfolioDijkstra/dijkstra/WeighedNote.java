@@ -1,4 +1,4 @@
-package dijkstra;
+package Portfolio.PortfolioDijkstra.dijkstra;
 import java.util.HashMap;
 import java.util.Map;
 

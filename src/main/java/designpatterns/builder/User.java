@@ -39,4 +39,16 @@ public class User {
             return new User(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", country='" + country + '\'' +
+                ", newsletter=" + newsletter +
+                '}';
+    }
 }

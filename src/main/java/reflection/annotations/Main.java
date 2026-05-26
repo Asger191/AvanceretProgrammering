@@ -11,5 +11,7 @@ public class Main {
         AccessController.invokeIfAuthorized(service, normal, "deleteAllUsers");
         AccessController.invokeIfAuthorized(service, normal, "viewProfile");
         AccessController.invokeIfAuthorized(service, normal, "help");
+
+        service.deleteAllUsers();
     }
 }

@@ -24,7 +24,7 @@ public class Assigment2 {
         start = System.currentTimeMillis();
         integerLinkedList.add(250000, 99);
         stop = System.currentTimeMillis();
-        System.out.println("Time for adding on index 250000 with value 99:" + (stop - start) + " ms\n");
+        System.out.println("Time for adding on index 250000 with value 99: " + (stop - start) + " ms\n");
 
         start = System.currentTimeMillis();
         integerLinkedList.remove(250000);

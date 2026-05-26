@@ -1,4 +1,4 @@
-package Portfolio.PortfolioAlgoritmik.circularlinkedlist;
+package Portfolio.PortfolioAlgoritmik.circularlinkedlistKommentar;
 
 public class ListFactory {
 
@@ -25,7 +25,7 @@ public class ListFactory {
         n2.next = n3;
         n3.next = n4;
         n4.next = n5;
-        n5.next = n2; // Laver cyklus
+        n5.next = n1; // Laver cyklus
         return n1;
     }
 

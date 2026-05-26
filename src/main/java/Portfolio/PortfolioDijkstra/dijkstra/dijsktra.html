@@ -1,0 +1,187 @@
+<style>
+    #dijk-wrap{font-family:system-ui,sans-serif;padding:1rem 0;max-width:560px;}
+    #dijk-controls{display:flex;gap:8px;margin-bottom:12px;}
+    #dijk-controls button{padding:6px 16px;border-radius:8px;border:1px solid #555;background:#3a3a3a;color:#eee;cursor:pointer;font-size:13px;}
+    #dijk-controls button:hover{background:#4a4a4a;}
+    #dijk-controls button:disabled{opacity:.35;cursor:default;}
+    #cv{display:block;border-radius:12px;border:1px solid #444;background:#2a2a2a;}
+    #dijk-legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 6px;font-size:12px;color:#aaa;}
+    .ld{width:13px;height:13px;border-radius:50%;display:inline-block;margin-right:3px;vertical-align:middle;}
+    #dijk-log{font-size:12px;color:#aaa;margin-top:10px;border-top:1px solid #444;padding-top:8px;max-height:100px;overflow-y:auto;}
+    .le{padding:2px 0;border-bottom:1px solid #333;}
+</style>
+
+<div id="dijk-wrap">
+    <div id="dijk-controls">
+        <button id="btn-go">Start</button>
+        <button id="btn-step" disabled>Næste skridt</button>
+        <button id="btn-reset">Nulstil</button>
+    </div>
+    <canvas id="cv" width="520" height="340"></canvas>
+    <div id="dijk-legend">
+        <span><span class="ld" style="background:#555;outline:1.5px solid #888"></span>Ubesøgt</span>
+        <span><span class="ld" style="background:#EF9F27"></span>I kø</span>
+        <span><span class="ld" style="background:#7F77DD"></span>Behandles</span>
+        <span><span class="ld" style="background:#1D9E75"></span>Færdig</span>
+        <span><span class="ld" style="background:#E24B4A"></span>Korteste vej</span>
+    </div>
+    <div id="dijk-log"></div>
+</div>
+
+<script>
+    const SRC=0,DST=12;
+    const CW=520,CH=340,PAD=42;
+
+    const houses=[
+        {id:0, x:.08,y:.50},
+        {id:1, x:.22,y:.20},{id:2, x:.22,y:.50},{id:3, x:.22,y:.80},
+        {id:4, x:.38,y:.12},{id:5, x:.38,y:.38},{id:6, x:.38,y:.65},{id:7, x:.38,y:.88},
+        {id:8, x:.60,y:.25},{id:9, x:.60,y:.55},{id:10,x:.60,y:.80},
+        {id:11,x:.76,y:.38},{id:12,x:.92,y:.50},
+    ];
+
+    const edges=[
+        [0,1,4],[0,2,2],[0,3,7],[1,4,3],[1,5,6],[2,5,4],[2,6,5],[3,6,3],[3,7,6],
+        [4,8,5],[4,5,2],[5,8,4],[5,9,7],[6,9,3],[6,10,5],[7,10,4],
+        [8,11,3],[8,9,6],[9,11,5],[9,10,4],[10,12,8],[11,12,4],
+    ];
+
+    const adj=Array.from({length:13},()=>[]);
+    edges.forEach(([u,v,w])=>adj[u].push({v,w}));
+
+    const cv=document.getElementById('cv');
+    const ctx=cv.getContext('2d');
+    const logEl=document.getElementById('dijk-log');
+    const SZ=22;
+
+    let nodeState=[],distArr=[],prevArr=[],pathEdges=new Set(),activeEdge=null,gen=null;
+
+    function px(h){
+        const inner=CW-PAD*2;
+        return[PAD+h.x*inner, PAD*0.8+h.y*(CH-PAD*1.6)];
+    }
+    function hBY(hy){return hy-SZ*0.75-SZ*0.55;}
+
+    function edgePt(i,fx,fy){
+        const h=houses[i],[hx,hy]=px(h),by=hBY(hy),top=by-SZ*0.55,cy=(top+by+SZ*0.75)/2;
+        const ang=Math.atan2(fy-cy,fx-hx),hw=SZ/2+3,hh=(SZ*0.75+SZ*0.55)/2;
+        const sc=Math.min(Math.abs(hw/Math.cos(ang)),Math.abs(hh/Math.sin(ang)));
+        return[hx+Math.cos(ang)*sc,cy+Math.sin(ang)*sc];
+    }
+
+    function arrow(x1,y1,x2,y2,col,lw){
+        const a=Math.atan2(y2-y1,x2-x1);
+        ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2-Math.cos(a)*2,y2-Math.sin(a)*2);
+        ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.stroke();
+        ctx.beginPath();ctx.moveTo(x2,y2);
+        ctx.lineTo(x2-7*Math.cos(a-.4),y2-7*Math.sin(a-.4));
+        ctx.lineTo(x2-7*Math.cos(a+.4),y2-7*Math.sin(a+.4));
+        ctx.closePath();ctx.fillStyle=col;ctx.fill();
+    }
+
+    function house(x,y,fill,roof,stroke){
+        const bh=SZ*.75,rh=SZ*.55,by=hBY(y);
+        ctx.beginPath();ctx.rect(x-SZ/2,by,SZ,bh);ctx.fillStyle=fill;ctx.fill();
+        ctx.strokeStyle=stroke;ctx.lineWidth=1.5;ctx.stroke();
+        ctx.beginPath();ctx.moveTo(x-SZ/2-2,by);ctx.lineTo(x,by-rh);ctx.lineTo(x+SZ/2+2,by);
+        ctx.closePath();ctx.fillStyle=roof;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=1.5;ctx.stroke();
+        const dw=SZ*.22,dh=bh*.4;
+        ctx.beginPath();ctx.rect(x-dw/2,by+bh-dh,dw,dh);ctx.fillStyle='rgba(0,0,0,.3)';ctx.fill();
+        ctx.strokeStyle=stroke;ctx.lineWidth=1;ctx.stroke();
+    }
+
+    function cols(st,id){
+        if(id===SRC)return{f:'#1D9E75',r:'#0F6E56',s:'#0F6E56'};
+        if(id===DST)return{f:'#E24B4A',r:'#A32D2D',s:'#A32D2D'};
+        if(st==='current')return{f:'#7F77DD',r:'#534AB7',s:'#534AB7'};
+        if(st==='queued') return{f:'#EF9F27',r:'#BA7517',s:'#BA7517'};
+        if(st==='visited')return{f:'#1D9E75',r:'#0F6E56',s:'#0F6E56'};
+        if(st==='path')   return{f:'#E24B4A',r:'#A32D2D',s:'#A32D2D'};
+        return{f:'#4a4a4a',r:'#3a3a3a',s:'#666'};
+    }
+
+    function marker(x,y,label,col){
+        ctx.beginPath();ctx.arc(x,y,14,0,2*Math.PI);ctx.fillStyle=col;ctx.fill();
+        ctx.font='bold 8px system-ui';ctx.fillStyle='#fff';
+        ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(label,x,y);
+    }
+
+    function draw(){
+        ctx.fillStyle='#2a2a2a';ctx.fillRect(0,0,CW,CH);
+
+        const[sx,sy]=px(houses[SRC]),[dx,dy]=px(houses[DST]);
+        marker(sx-28,sy,'START','#1D9E75');
+        ctx.beginPath();ctx.moveTo(sx-14,sy);ctx.lineTo(sx-4,sy);ctx.strokeStyle='#1D9E75';ctx.lineWidth=2;ctx.stroke();
+        marker(dx+28,dy,'SLUT','#E24B4A');
+        ctx.beginPath();ctx.moveTo(dx+4,dy);ctx.lineTo(dx+14,dy);ctx.strokeStyle='#E24B4A';ctx.lineWidth=2;ctx.stroke();
+
+        edges.forEach(([u,v,w])=>{
+            const[x1,y1]=px(houses[u]),[x2,y2]=px(houses[v]);
+            const[e1x,e1y]=edgePt(u,x2,y2),[e2x,e2y]=edgePt(v,x1,y1);
+            const pk=u+'-'+v,inP=pathEdges.has(pk),isA=activeEdge===pk;
+            arrow(e1x,e1y,e2x,e2y,inP?'#E24B4A':isA?'#EF9F27':'#555',inP?3:isA?2:1);
+            const mx=(e1x+e2x)/2,my=(e1y+e2y)/2,a=Math.atan2(e2y-e1y,e2x-e1x);
+            ctx.font='10px system-ui';ctx.fillStyle='#888';
+            ctx.textAlign='center';ctx.textBaseline='middle';
+            ctx.fillText(w,mx-Math.sin(a)*11,my+Math.cos(a)*11);
+        });
+
+        houses.forEach((h,i)=>{
+            const[x,y]=px(h);
+            let st=nodeState[i]||'unvisited';
+            if(pathEdges.size>0&&[...pathEdges].some(k=>{const[a,b]=k.split('-');return+a===i||+b===i;}))st='path';
+            const{f,r,s}=cols(st,i);
+            house(x,y,f,r,s);
+            const by=hBY(y),top=by-SZ*.55;
+            const d=distArr[i],dl=i===SRC?'0':d===undefined||d===Infinity?'?':String(d);
+            ctx.font='500 11px system-ui';ctx.textAlign='center';ctx.textBaseline='bottom';
+            ctx.fillStyle='#fff';ctx.fillText(dl,x,top-3);
+            ctx.font='500 9px system-ui';ctx.textBaseline='middle';
+            ctx.fillStyle='#fff';ctx.fillText('Hus '+i,x,by+SZ*.75*.5);
+        });
+    }
+
+    function log(msg){const d=document.createElement('div');d.className='le';d.textContent=msg;logEl.prepend(d);}
+
+    function* dijkstra(s,t){
+        distArr=Array(13).fill(Infinity);prevArr=Array(13).fill(-1);
+        nodeState=Array(13).fill('unvisited');pathEdges.clear();activeEdge=null;
+        distArr[s]=0;nodeState[s]='queued';
+        log('Start fra hus '+s+' — afstand 0');draw();yield;
+        const visited=new Set(),pq=[[0,s]];
+        while(pq.length){
+            pq.sort((a,b)=>a[0]-b[0]);
+            const[d,u]=pq.shift();
+            if(visited.has(u))continue;
+            visited.add(u);nodeState[u]='current';
+            log('Behandler hus '+u+' (afstand: '+d+')');draw();yield;
+            if(u===t)break;
+            for(const{v,w}of adj[u]){
+                if(visited.has(v))continue;
+                activeEdge=u+'-'+v;
+                const nd=d+w;
+                if(nd<distArr[v]){distArr[v]=nd;prevArr[v]=u;nodeState[v]='queued';pq.push([nd,v]);log('  Hus '+v+' opdateret → '+nd+' (via hus '+u+')');}
+                draw();yield;
+            }
+            activeEdge=null;nodeState[u]='visited';draw();yield;
+        }
+        let cur=t;
+        while(prevArr[cur]!==-1){const p=prevArr[cur];pathEdges.add(p+'-'+cur);pathEdges.add(cur+'-'+p);cur=p;}
+        log('Korteste vej: hus '+s+' → hus '+t+' = '+distArr[t]);draw();
+    }
+
+    function reset(){
+        gen=null;pathEdges.clear();activeEdge=null;
+        distArr=Array(13).fill(Infinity);nodeState=Array(13).fill('unvisited');
+        logEl.innerHTML='';
+        document.getElementById('btn-step').disabled=true;
+        document.getElementById('btn-go').disabled=false;
+        draw();
+    }
+
+    document.getElementById('btn-go').onclick=()=>{reset();gen=dijkstra(SRC,DST);document.getElementById('btn-step').disabled=false;document.getElementById('btn-go').disabled=true;gen.next();};
+    document.getElementById('btn-step').onclick=()=>{if(!gen)return;const r=gen.next();if(r.done)document.getElementById('btn-step').disabled=true;};
+    document.getElementById('btn-reset').onclick=reset;
+
+    reset();
+</script>

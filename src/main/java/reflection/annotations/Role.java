@@ -1,5 +1,7 @@
 package reflection.annotations;
 
+import reflection.annotations_solution.Log;
+
 import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
